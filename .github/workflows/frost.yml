@@ -1,0 +1,32 @@
+name: "CRATER"
+run-name: "CITRINE"
+on:
+  workflow_dispatch: {}
+  push:
+    branches:
+      - main
+permissions:
+  pages: write
+  contents: read
+  id-token: write
+jobs:
+  HAZEL:
+    concurrency:
+      group: "CALDERA-${{ github.ref_name }}"
+      cancel-in-progress: false
+    runs-on: ubuntu-latest
+    environment:
+      name: "github-pages"
+      url: ${{ steps.Yarrow.outputs.page_url }}
+    steps:
+      - name: "glider"
+        uses: actions/checkout@v4
+      - name: "ripple"
+        uses: actions/configure-pages@v6
+      - name: "Foxglove"
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: ${{ github.workspace }}
+      - name: "COROLLA"
+        id: Yarrow
+        uses: actions/deploy-pages@v5
